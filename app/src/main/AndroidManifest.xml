@@ -22,6 +22,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".PlantHealthTrackerActivity"
+            android:label="Plant Health Tracker" >
+        </activity>
+
+        <activity
+            android:name=".PlantCareTipsActivity"
+            android:label="Plant Care Tips" >
+        </activity>
+
     </application>
 
 </manifest>
