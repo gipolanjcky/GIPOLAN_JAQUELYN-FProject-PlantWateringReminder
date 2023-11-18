@@ -17,14 +17,15 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginTop="10dp"/>
 
     <!-- Watering Interval -->
     <TextView
         android:id="@+id/wateringIntervalTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"/>
+        android:textSize="16sp"
+        android:layout_marginTop="5dp"/>
 
     <!-- Set Watering Schedule Button -->
     <Button
@@ -32,15 +33,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Set Watering Schedule"
-        android:layout_marginBottom="8dp"/>
+        android:textSize="12sp"
+        android:layout_marginTop="40dp"/>
 
     <!-- Reminder Notifications Button -->
     <Button
         android:id="@+id/reminderNotificationsButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Reminder Notifications"
-        android:layout_marginBottom="8dp"/>
+        android:text="Reminder"
+        android:textSize="12sp"
+        android:layout_marginBottom="2dp"/>
 
     <!-- Plant Care Tips Button -->
     <Button
@@ -48,7 +51,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Plant Care Tips"
-        android:layout_marginBottom="8dp"/>
+        android:textSize="12sp"
+        android:layout_marginBottom="2dp"/>
 
     <!-- Plant Health Tracker Button -->
     <Button
@@ -56,6 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Plant Health Tracker"
-        android:layout_marginBottom="8dp"/>
+        android:textSize="12sp"
+        android:layout_marginBottom="2dp"/>
 
 </LinearLayout>

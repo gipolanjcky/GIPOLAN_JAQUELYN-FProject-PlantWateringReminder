@@ -2,4 +2,8 @@
 <resources>
     <item name="plantNameTextView" type="id" />
     <item name="wateringIntervalTextView" type="id" />
+    <item name="setWateringScheduleButton" type="id" />
+    <item name="reminderNotificationsButton" type="id" />
+    <item name="plantCareTipsButton" type="id" />
+    <item name="plantHealthTrackerButton" type="id" />
 </resources>

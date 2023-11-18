@@ -74,8 +74,4 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun putExtra(s: String, name: Any) {
-
-    }
-
 }

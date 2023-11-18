@@ -6,43 +6,32 @@ import android.app.Dialog
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.view.Window
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
-import android.widget.ListView
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import com.example.gipolanfinalprojectpwr.databinding.ActivityPlantDetailsBinding
 
 class PlantDetailsActivity : AppCompatActivity() {
-
-
-    private lateinit var plantCareTipsButton: Button
-    private lateinit var plantHealthTrackerButton: Button
-    private lateinit var setWateringScheduleButton: Button
-    private lateinit var reminderNotificationsButton: Button
-    private lateinit var plantListView: ListView
+    private lateinit var binding: ActivityPlantDetailsBinding
     private val plants = mutableListOf<Plant>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.plant_details)
+        binding = ActivityPlantDetailsBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-        plantCareTipsButton = findViewById(R.id.plantCareTipsButton)
-        plantHealthTrackerButton = findViewById(R.id.plantHealthTrackerButton)
-        setWateringScheduleButton = findViewById(R.id.setWateringScheduleButton)
-        reminderNotificationsButton = findViewById(R.id.reminderNotificationsButton)
-        plantListView = findViewById(R.id.plantListView)
-
-        val plantNameTextView = findViewById<TextView>(R.id.plantNameTextView)
-        val wateringIntervalTextView = findViewById<TextView>(R.id.wateringIntervalTextView)
+        val plantNameTextView = binding.plantNameTextView
+        val wateringIntervalTextView = binding.wateringIntervalTextView
 
         setUpButtonListeners()
 
@@ -54,24 +43,24 @@ class PlantDetailsActivity : AppCompatActivity() {
         plantNameTextView.text = plantName
         wateringIntervalTextView.text = "Watering Interval: $wateringInterval days"
 
-
-        plantCareTipsButton.setOnClickListener {
+        binding.plantCareTipsButton.setOnClickListener {
             startPlantCareTipsActivity()
         }
 
-        plantHealthTrackerButton.setOnClickListener {
+        binding.plantHealthTrackerButton.setOnClickListener {
             startPlantHealthTrackerActivity()
         }
+
     }
 
     private fun setUpButtonListeners() {
         // Add a click listener for the "Set Watering Schedule" button
-        setWateringScheduleButton.setOnClickListener {
+        binding.setWateringScheduleButton.setOnClickListener {
             openWateringScheduleDialog()
         }
 
         // Add a click listener for the "Reminder Notifications" button
-        reminderNotificationsButton.setOnClickListener {
+        binding.reminderNotificationsButton.setOnClickListener {
             openReminderNotificationDialog()
         }
     }
@@ -118,6 +107,7 @@ class PlantDetailsActivity : AppCompatActivity() {
             dialog.dismiss()
         }
 
+
         // Show the dialog
         dialog.show()
     }
@@ -158,7 +148,7 @@ class PlantDetailsActivity : AppCompatActivity() {
     }
 
     private fun createNotificationChannel(channelId: String) {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val name = "Plant Reminder"
             val descriptionText = "Plant watering reminders"
             val importance = NotificationManager.IMPORTANCE_DEFAULT
@@ -166,7 +156,7 @@ class PlantDetailsActivity : AppCompatActivity() {
                 description = descriptionText
             }
             val notificationManager =
-                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+                getSystemService(NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.createNotificationChannel(channel)
         }
     }
