@@ -28,34 +28,6 @@
         android:layout_height="wrap_content"
         android:text="Add Plant" />
 
-    <!-- Set Watering Schedule Section -->
-    <Button
-        android:id="@+id/setWateringScheduleButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Set Watering Schedule" />
-
-    <!-- Reminder Notifications Section -->
-    <Button
-        android:id="@+id/reminderNotificationsButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Reminder Notifications" />
-
-    <!-- Plant Care Tips Section -->
-    <Button
-        android:id="@+id/plantCareTipsButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Plant Care Tips" />
-
-    <!-- Plant Health Tracker Section -->
-    <Button
-        android:id="@+id/plantHealthTrackerButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Plant Health Tracker" />
-
     <ListView
         android:id="@+id/plantListView"
         android:layout_width="match_parent"
