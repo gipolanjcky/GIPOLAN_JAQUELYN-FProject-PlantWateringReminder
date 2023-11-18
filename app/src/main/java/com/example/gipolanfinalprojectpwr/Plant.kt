@@ -1,13 +1,10 @@
 package com.example.gipolanfinalprojectpwr
 
-class Plant(plantName: String, wateringInterval: Int) {
-
-    val wateringInterval: Any
-        get() {
-            TODO()
-        }
-    val name: Any
-        get() {
-            TODO()
-        }
+data class Plant(val name: String, val wateringInterval: Int) {
+    // Rename the method
+    fun getPlantName(): String {
+        return name
+    }
 }
+
+

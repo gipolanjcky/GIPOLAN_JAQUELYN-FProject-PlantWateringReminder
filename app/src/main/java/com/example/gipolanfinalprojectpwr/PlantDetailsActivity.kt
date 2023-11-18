@@ -14,6 +14,7 @@ import android.view.Window
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
+import android.widget.ListView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -27,6 +28,7 @@ class PlantDetailsActivity : AppCompatActivity() {
     private lateinit var plantHealthTrackerButton: Button
     private lateinit var setWateringScheduleButton: Button
     private lateinit var reminderNotificationsButton: Button
+    private lateinit var plantListView: ListView
     private val plants = mutableListOf<Plant>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,13 +37,13 @@ class PlantDetailsActivity : AppCompatActivity() {
 
         plantCareTipsButton = findViewById(R.id.plantCareTipsButton)
         plantHealthTrackerButton = findViewById(R.id.plantHealthTrackerButton)
+        setWateringScheduleButton = findViewById(R.id.setWateringScheduleButton)
+        reminderNotificationsButton = findViewById(R.id.reminderNotificationsButton)
+        plantListView = findViewById(R.id.plantListView)
 
         val plantNameTextView = findViewById<TextView>(R.id.plantNameTextView)
         val wateringIntervalTextView = findViewById<TextView>(R.id.wateringIntervalTextView)
-        val setWateringScheduleButton = findViewById<Button>(R.id.setWateringScheduleButton)
-        val reminderNotificationsButton = findViewById<Button>(R.id.reminderNotificationsButton)
-        val plantCareTipsButton = findViewById<Button>(R.id.plantCareTipsButton)
-        val plantHealthTrackerButton = findViewById<Button>(R.id.plantHealthTrackerButton)
+
         setUpButtonListeners()
 
         // Retrieve data from the intent
@@ -52,7 +54,6 @@ class PlantDetailsActivity : AppCompatActivity() {
         plantNameTextView.text = plantName
         wateringIntervalTextView.text = "Watering Interval: $wateringInterval days"
 
-        // TODO: Add click listeners for buttons if needed
 
         plantCareTipsButton.setOnClickListener {
             startPlantCareTipsActivity()
@@ -64,9 +65,6 @@ class PlantDetailsActivity : AppCompatActivity() {
     }
 
     private fun setUpButtonListeners() {
-        // Initialize the reminderNotificationsButton
-        reminderNotificationsButton = findViewById(R.id.reminderNotificationsButton)
-
         // Add a click listener for the "Set Watering Schedule" button
         setWateringScheduleButton.setOnClickListener {
             openWateringScheduleDialog()

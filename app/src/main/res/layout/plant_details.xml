@@ -9,6 +9,7 @@
     android:padding="16dp"
     tools:context=".PlantDetailsActivity">
 
+
     <!-- Plant Name -->
     <TextView
         android:id="@+id/plantNameTextView"

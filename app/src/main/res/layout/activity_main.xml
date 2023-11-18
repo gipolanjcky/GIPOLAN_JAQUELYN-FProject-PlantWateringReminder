@@ -9,12 +9,34 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hi, Jacky!"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/tvTitle1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter a plant name and its watering interval"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"/>
+
     <!-- Add Plant Section -->
     <EditText
         android:id="@+id/plantNameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Plant Name" />
+        android:hint="Plant Name"
+        android:layout_marginTop="6dp"/>
 
     <EditText
         android:id="@+id/wateringIntervalEditText"
@@ -28,8 +50,19 @@
         android:layout_height="wrap_content"
         android:text="Add Plant" />
 
+    <TextView
+        android:id="@+id/yourPlant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your plants: "
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"/>
+
     <ListView
         android:id="@+id/plantListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
 </LinearLayout>

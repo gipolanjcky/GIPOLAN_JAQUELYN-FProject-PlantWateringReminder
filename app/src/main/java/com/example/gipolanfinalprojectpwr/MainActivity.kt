@@ -2,57 +2,65 @@ package com.example.gipolanfinalprojectpwr
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ListView
-import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.gipolanfinalprojectpwr.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var plantNameEditText: EditText
-    private lateinit var wateringIntervalEditText: EditText
-    private lateinit var addPlantButton: Button
-    private lateinit var plantListView: ListView
+    private lateinit var binding: ActivityMainBinding
     private val plants = mutableListOf<Plant>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-        plantNameEditText = findViewById(R.id.plantNameEditText)
-        wateringIntervalEditText = findViewById(R.id.wateringIntervalEditText)
-        addPlantButton = findViewById(R.id.addPlantButton)
-        plantListView = findViewById(R.id.plantListView)
+        val plantNameEditText = binding.plantNameEditText
+        val wateringIntervalEditText = binding.wateringIntervalEditText
+        val addPlantButton = binding.addPlantButton
+        val plantListView = binding.plantListView
 
         setUpButtonListeners()
 
-        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, plants)
+        val adapter = PlantAdapter(this, plants)
         plantListView.adapter = adapter
 
 
         addPlantButton.setOnClickListener {
             val plantName = plantNameEditText.text.toString()
-            val wateringInterval = wateringIntervalEditText.text.toString().toInt()
-            val plant = Plant(plantName, wateringInterval)
-            plants.add(plant)
-            adapter.notifyDataSetChanged()
-            plantNameEditText.text.clear()
-            wateringIntervalEditText.text.clear()
+            val wateringIntervalText = wateringIntervalEditText.text.toString()
 
+            if (plantName.isEmpty() || wateringIntervalText.isEmpty()) {
+                Toast.makeText(this, "Please fill in all fields.", Toast.LENGTH_SHORT).show()
+            } else {
+                try {
+                    val wateringInterval = wateringIntervalText.toInt()
+                    val plant = Plant(plantName, wateringInterval)
+                    plants.add(plant)
+
+                    // Use custom adapter
+                    adapter.notifyDataSetChanged()
+
+                    Toast.makeText(this, "Plant added successfully!", Toast.LENGTH_SHORT).show()
+
+                    plantNameEditText.text.clear()
+                    wateringIntervalEditText.text.clear()
+                } catch (e: NumberFormatException) {
+                    Toast.makeText(this, "Invalid watering interval. Enter a number only.", Toast.LENGTH_SHORT).show()
+                    e.printStackTrace()  // Log the exception
+                } catch (e: Exception) {
+                    Toast.makeText(this, "An error occurred: ${e.message}", Toast.LENGTH_SHORT).show()
+                    e.printStackTrace()  // Log the exception
+                }
+            }
         }
-
     }
-
-private fun setUpButtonListeners() {
+        private fun setUpButtonListeners() {
 
         // Add a click listener for the plantListView items
-        plantListView.setOnItemClickListener { _, _, position, _ ->
+        binding.plantListView.setOnItemClickListener { _, _, position, _ ->
             val selectedPlant = plants[position]
             openPlantDetailsActivity(selectedPlant)
         }

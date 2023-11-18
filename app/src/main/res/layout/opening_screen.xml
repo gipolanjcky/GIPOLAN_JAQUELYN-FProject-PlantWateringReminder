@@ -9,17 +9,29 @@
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Plant Watering Reminder"
-        android:textSize="20sp"
+        android:text="Plant Watering"
+        android:textSize="22sp"
+        android:textStyle="bold"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="250dp"/>
 
+    <TextView
+        android:id="@+id/tvTitle1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reminder"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="280dp"/>
 
     <Button
         android:id="@+id/btnNavigate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Get Started"
-        android:layout_centerInParent="true"/>
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp"/>
 
 </RelativeLayout>
