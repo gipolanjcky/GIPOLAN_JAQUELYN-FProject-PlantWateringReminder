@@ -3,4 +3,5 @@
     <string name="plant_name">Plant Name</string>
     <string name="watering_interval_in_days">Watering Interval (in days)</string>
     <string name="add_plant">Add Plant</string>
+    <string name="plant_details">Plant Details</string>
 </resources>

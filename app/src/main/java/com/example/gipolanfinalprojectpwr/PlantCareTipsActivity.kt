@@ -16,16 +16,17 @@ class PlantCareTipsActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        val plantNameTextView = binding.plantNameTextView
-        val wateringIntervalTextView = binding.wateringIntervalTextView
 
+        // Hide the title bar
+        supportActionBar?.hide()
+
+        val plantNameTextView = binding.plantNameTextView
 
         // Retrieve data from the intent
         val plantName = intent.getStringExtra("plantName")
-        val wateringInterval = intent.getIntExtra("wateringInterval", 0)
 
-        // Set the data to the views
+        // Set plant name
         plantNameTextView.text = plantName
-        wateringIntervalTextView.text = "Watering Interval: $wateringInterval days"
+
     }
 }

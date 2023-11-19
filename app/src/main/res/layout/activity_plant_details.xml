@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="16dp"
     tools:context=".PlantDetailsActivity">
 
+    <TextView
+        android:id="@+id/planDetailsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/plant_details"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"/>
 
     <!-- Plant Name -->
     <TextView
@@ -17,7 +25,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="110dp"/>
 
     <!-- Watering Interval -->
     <TextView
@@ -25,7 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:layout_marginTop="5dp"/>
+        android:layout_marginTop="145dp"/>
 
     <!-- Set Watering Schedule Button -->
     <Button
@@ -34,7 +42,7 @@
         android:layout_height="wrap_content"
         android:text="Set Watering Schedule"
         android:textSize="12sp"
-        android:layout_marginTop="40dp"/>
+        android:layout_marginTop="205dp"/>
 
     <!-- Reminder Notifications Button -->
     <Button
@@ -43,7 +51,7 @@
         android:layout_height="wrap_content"
         android:text="Reminder"
         android:textSize="12sp"
-        android:layout_marginBottom="2dp"/>
+        android:layout_marginTop="250dp"/>
 
     <!-- Plant Care Tips Button -->
     <Button
@@ -52,7 +60,7 @@
         android:layout_height="wrap_content"
         android:text="Plant Care Tips"
         android:textSize="12sp"
-        android:layout_marginBottom="2dp"/>
+        android:layout_marginTop="295dp"/>
 
     <!-- Plant Health Tracker Button -->
     <Button
@@ -61,6 +69,7 @@
         android:layout_height="wrap_content"
         android:text="Plant Health Tracker"
         android:textSize="12sp"
-        android:layout_marginBottom="2dp"/>
+        android:layout_marginTop="340dp"/>
 
-</LinearLayout>
+</RelativeLayout>
+

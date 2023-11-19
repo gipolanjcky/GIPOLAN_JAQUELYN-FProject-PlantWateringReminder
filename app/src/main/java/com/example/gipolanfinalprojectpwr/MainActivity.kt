@@ -17,6 +17,9 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        // Hide the title bar
+        supportActionBar?.hide()
+
         val plantNameEditText = binding.plantNameEditText
         val wateringIntervalEditText = binding.wateringIntervalEditText
         val addPlantButton = binding.addPlantButton
@@ -49,9 +52,6 @@ class MainActivity : AppCompatActivity() {
                     wateringIntervalEditText.text.clear()
                 } catch (e: NumberFormatException) {
                     Toast.makeText(this, "Invalid watering interval. Enter a number only.", Toast.LENGTH_SHORT).show()
-                    e.printStackTrace()  // Log the exception
-                } catch (e: Exception) {
-                    Toast.makeText(this, "An error occurred: ${e.message}", Toast.LENGTH_SHORT).show()
                     e.printStackTrace()  // Log the exception
                 }
             }

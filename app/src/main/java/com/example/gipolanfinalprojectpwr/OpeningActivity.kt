@@ -10,6 +10,10 @@ class OpeningActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.opening_screen)
+
+        // Hide the title bar
+        supportActionBar?.hide()
+
         val nextButton: View = findViewById(R.id.btnNavigate)
         nextButton.setOnClickListener {
 
